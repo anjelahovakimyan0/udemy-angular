@@ -5,6 +5,7 @@ import { PostComponent } from './post/post.component';
 import { FormsModule } from '@angular/forms';
 import {
   JsonPipe,
+  LowerCasePipe,
   NgClass,
   NgFor,
   NgIf,
@@ -12,6 +13,8 @@ import {
   NgSwitch,
   NgSwitchCase,
   NgSwitchDefault,
+  NumberSymbol,
+  UpperCasePipe,
 } from '@angular/common';
 
 @Component({
@@ -30,31 +33,40 @@ import {
     NgSwitchDefault,
     NgStyle,
     NgClass,
+    UpperCasePipe,
+    LowerCasePipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  name!: string;
-  email!: string;
-  address!: string;
 
-  userArray: Array<any> = [];
+  title: string = "Angular Course";
+  count: number = 4564258;
+  dcValue: number = 3.41564848;
 
-  onClick() {
-    this.userArray.push({
-      name: this.name,
-      email: this.email,
-      address: this.address,
-    });
 
-    console.log(this.userArray);
+
+  // name!: string;
+  // email!: string;
+  // address!: string;
+
+  // userArray: Array<any> = [];
+
+  // onClick() {
+  //   this.userArray.push({
+  //     name: this.name,
+  //     email: this.email,
+  //     address: this.address,
+  //   });
+
+  //   console.log(this.userArray);
     
-  }
+  // }
 
-  onDelete(index: number) {
-      this.userArray.splice(index, 1);
-  }
+  // onDelete(index: number) {
+  //     this.userArray.splice(index, 1);
+  // }
 
   // isActive: boolean = true;
 
