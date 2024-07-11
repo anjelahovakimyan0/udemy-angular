@@ -17,3 +17,22 @@
 .text-red {
     color: red;
 }
+
+
+.main {
+    color: red;
+    text-transform: uppercase;
+}
+
+.text-weight {
+    font-weight: bold;
+}
+
+.table-area {
+    position: absolute;
+    left: 30%;
+}
+
+h4 {
+    text-align: center;
+}

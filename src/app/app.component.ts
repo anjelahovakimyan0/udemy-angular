@@ -3,7 +3,16 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { FormsModule } from '@angular/forms';
-import { JsonPipe, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
+import {
+  JsonPipe,
+  NgClass,
+  NgFor,
+  NgIf,
+  NgStyle,
+  NgSwitch,
+  NgSwitchCase,
+  NgSwitchDefault,
+} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -11,63 +20,81 @@ import { JsonPipe, NgFor, NgIf, NgStyle, NgSwitch, NgSwitchCase, NgSwitchDefault
   imports: [
     RouterOutlet,
     NavbarComponent,
-    PostComponent, 
-    FormsModule, 
-    NgFor, 
-    JsonPipe, 
-    NgIf, 
-    NgSwitch, 
+    PostComponent,
+    FormsModule,
+    NgFor,
+    JsonPipe,
+    NgIf,
+    NgSwitch,
     NgSwitchCase,
     NgSwitchDefault,
-    NgStyle
+    NgStyle,
+    NgClass,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  name!: string;
+  email!: string;
+  address!: string;
 
-  isActive: boolean = true;
+  userArray: Array<any> = [];
 
-  stepForm: string = "Something Else";
+  onClick() {
+    this.userArray.push({
+      name: this.name,
+      email: this.email,
+      address: this.address,
+    });
 
-  postArray: Array<string> = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5'];
-
-  objArray: Array<any> = [
-      { id: 1, postTitle: 'Post 1' },
-      { id: 2, postTitle: 'Post 2' },
-      { id: 3, postTitle: 'Post 3' },
-      { id: 4, postTitle: 'Post 4' },
-      { id: 5, postTitle: 'Post 5' }
-  ];
-
-  constructor() {
-    for(let i = 0; i < this.postArray.length; i++) {
-      console.log(this.postArray[i]);
-      
-    }
+    console.log(this.userArray);
+    
   }
 
-  addNew() {
-    this.objArray.push({ id: 6, postTitle: 'Post 6' });
+  onDelete(index: number) {
+      this.userArray.splice(index, 1);
   }
 
-  onDelete(index: any) {
-    //splice method to remove an array object, and the second parameter - how many objects we want to delete
-    this.objArray.splice(index, 1);
-  }
+  // isActive: boolean = true;
 
-  onClick(status: string) {
-      this.stepForm = status;
-  }
+  // stepForm: string = "Something Else";
 
+  // postArray: Array<string> = ['Post 1', 'Post 2', 'Post 3', 'Post 4', 'Post 5'];
+
+  // objArray: Array<any> = [
+  //     { id: 1, postTitle: 'Post 1' },
+  //     { id: 2, postTitle: 'Post 2' },
+  //     { id: 3, postTitle: 'Post 3' },
+  //     { id: 4, postTitle: 'Post 4' },
+  //     { id: 5, postTitle: 'Post 5' }
+  // ];
+
+  // constructor() {
+  //   for(let i = 0; i < this.postArray.length; i++) {
+  //     console.log(this.postArray[i]);
+
+  //   }
+  // }
+
+  // addNew() {
+  //   this.objArray.push({ id: 6, postTitle: 'Post 6' });
+  // }
+
+  // onDelete(index: any) {
+  //   //splice method to remove an array object, and the second parameter - how many objects we want to delete
+  //   this.objArray.splice(index, 1);
+  // }
+
+  // onClick(status: string) {
+  //     this.stepForm = status;
+  // }
 
   // postTitle!: string;
   // postDetails!: string;
   // imageURL!: string;
   // postURL!: string;
   // addBackground!: boolean;
-
-
 
   //Task! - part 7
   // postTitle!: string;
@@ -98,11 +125,9 @@ export class AppComponent {
   //     this.checkbox = true;
   // }
 
+  // -----------------------------------------------------------------------------------
 
-// -----------------------------------------------------------------------------------
-
-
-// export class AppComponent implements AfterViewInit {
+  // export class AppComponent implements AfterViewInit {
   // userName!: string; // Եթե արժեք դեռ չենք վերագրեմ թոթոխականի կողքը ! կդնենք։
   // textValue: string = "Value is coming from the component";
 

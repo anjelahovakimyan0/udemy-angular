@@ -1,3 +1,43 @@
+<!-- Task 8 -->
+<div class="form-area">
+  <h3>User Details</h3>
+  <br /><br />
+  <input type="text" placeholder="Name" [(ngModel)]="name" />
+  <br /><br />
+  <input type="text" placeholder="E-mail" [(ngModel)]="email" />
+  <br /><br />
+  <textarea
+    cols="30"
+    rows="10"
+    placeholder="Address"
+    [(ngModel)]="address"
+  ></textarea>
+  <br /><br />
+  <button (click)="onClick()">Save Data</button>
+</div>
+@if(userArray.length > 0) {
+<div class="table-area">
+  <table [width]="500">
+    <thead>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Address</th>
+      <th>Action</th>
+    </thead>
+    <tr *ngFor="let user of userArray; let index = index">
+      <td>{{ index + 1 }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.address }}</td>
+      <td><button (click)="onDelete(index)">Delete</button></td>
+    </tr>
+  </table>
+</div>
+} @else { 
+    <h4>No data to show</h4>
+}
+
 <!-- <p>{{ postArray }}</p>
 
 Եթե չգիտենք, թե ինչքան value-ներ պտի գան, սպես չենք կռնա հատ-հատ վերցնենք, որտև համ անհարմար է, համ էլ քանակը չիդենք -->
@@ -10,13 +50,13 @@
   <li>{{ postArray[4] }}</li>
 </ul>
 
-<p>Fetched using ngFor Directive</p>
+<p>Fetched using *ngFor Directive</p>
 
 <ul>
   <li *ngFor="let post of postArray">{{ post }}</li>
 </ul>
 
-<p>Fetched objects using ngFor Directive</p>
+<p>Fetched objects using *ngFor Directive</p>
 
 <button (click)="addNew()">Add New Data</button>
 
@@ -40,7 +80,9 @@
     <button (click)="onClick('step 2')">Step 2</button>
     <button (click)="onClick('step 3')">Step 3</button>
 </div>
+
 <br>
+
 <div [ngSwitch] = "stepForm">
     <div *ngSwitchCase="'step 1'">Step 1 Form</div>
     <div *ngSwitchCase="'step 2'">Step 2 Form</div>
@@ -48,22 +90,31 @@
     <div *ngSwitchDefault>Something Else</div>
 </div> -->
 
-<p>NgStyle Directive</p>
+<!-- <p>NgStyle Directive</p>
 
-<h1>Angular Udemy Course</h1>
+<h1>Angular Udemy Course</h1> -->
 
-<h1 [ngStyle]="{
+<!-- <h1
+[class.main]="isActive"
+[class.text-weight]="isActive"
+>NgStyle Directive</h1> -->
+
+<!-- if isActive is true bind these css classes -->
+<!-- <h1
+[ngClass]="{
+    'main' : isActive,  
+    'text-weight': isActive
+}"
+>NgStyle Directive</h1> -->
+
+<!-- <h1 [ngStyle]="{
     color: isActive ? 'red' : 'black',
     textTransform: isActive ? 'uppercase' : 'lowercase'
-}">NgStyle Directive</h1>
-
-
+}">NgStyle Directive</h1> -->
 
 <!-- ng-template, որպեսզի view-ում էլեմենտների փոփոխություն խոսքի տեղի ունենա, էլեմենտ ավելանա/ջնջվի էս angular-ի կոմպոնենտում
   դրա մասին իմացվի, խոսքի էնտեղ, որ էլեմենտ ջնջեցինք view-ում, էստեղ իմացվի, կամ որ ավելացրինք էդ ժամանակ ու view-ում,
    որ բաներ անենք էստեղի if condition-ներն էլ կիմանան  -->
-
-
 
 <!-- <div class="form-area">
     <h1>Post Form</h1>
