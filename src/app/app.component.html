@@ -1,0 +1,166 @@
+<!-- <p>{{ postArray }}</p>
+
+Եթե չգիտենք, թե ինչքան value-ներ պտի գան, սպես չենք կռնա հատ-հատ վերցնենք, որտև համ անհարմար է, համ էլ քանակը չիդենք -->
+<!-- W e don't know how many values are inside the array -->
+<!-- <ul>
+  <li>{{ postArray[0] }}</li>
+  <li>{{ postArray[1] }}</li>
+  <li>{{ postArray[2] }}</li>
+  <li>{{ postArray[3] }}</li>
+  <li>{{ postArray[4] }}</li>
+</ul>
+
+<p>Fetched using ngFor Directive</p>
+
+<ul>
+  <li *ngFor="let post of postArray">{{ post }}</li>
+</ul>
+
+<p>Fetched objects using ngFor Directive</p>
+
+<button (click)="addNew()">Add New Data</button>
+
+@if (objArray.length > 0) {
+    <div>
+        <ul>
+          <li *ngFor="let post of objArray; let i = index">
+            {{ post.postTitle }}
+            <button (click)="onDelete(i)">Delete</button>
+          </li>
+        </ul>
+      </div>
+} @else {
+    <p>There is no data to fetch ...</p>
+}
+
+<p>ngSwitch Cases</p>
+
+<div>
+    <button (click)="onClick('step 1')">Step 1</button>
+    <button (click)="onClick('step 2')">Step 2</button>
+    <button (click)="onClick('step 3')">Step 3</button>
+</div>
+<br>
+<div [ngSwitch] = "stepForm">
+    <div *ngSwitchCase="'step 1'">Step 1 Form</div>
+    <div *ngSwitchCase="'step 2'">Step 2 Form</div>
+    <div *ngSwitchCase="'step 3'">Step 3 Form</div>
+    <div *ngSwitchDefault>Something Else</div>
+</div> -->
+
+<p>NgStyle Directive</p>
+
+<h1>Angular Udemy Course</h1>
+
+<h1 [ngStyle]="{
+    color: isActive ? 'red' : 'black',
+    textTransform: isActive ? 'uppercase' : 'lowercase'
+}">NgStyle Directive</h1>
+
+
+
+<!-- ng-template, որպեսզի view-ում էլեմենտների փոփոխություն խոսքի տեղի ունենա, էլեմենտ ավելանա/ջնջվի էս angular-ի կոմպոնենտում
+  դրա մասին իմացվի, խոսքի էնտեղ, որ էլեմենտ ջնջեցինք view-ում, էստեղ իմացվի, կամ որ ավելացրինք էդ ժամանակ ու view-ում,
+   որ բաներ անենք էստեղի if condition-ներն էլ կիմանան  -->
+
+
+
+<!-- <div class="form-area">
+    <h1>Post Form</h1>
+    <br><br>
+    <input type="text" placeholder="Post Title" [(ngModel)]="postTitle">
+    <br><br>
+    <textarea cols="30" rows="10" placeholder="Post Details" [(ngModel)]="postDetails"></textarea>
+    <br><br>
+    <input type="text" placeholder="Post Image" [(ngModel)]="imageURL">
+    <br><br>
+    <input type="text" placeholder="Post URL" [(ngModel)]="postURL">
+    <br><br>
+    <input type="checkbox" [(ngModel)]="addBackground"> Add Background
+    <br><br>
+</div>
+
+<div class="preview-area">
+    <img [src]="imageURL" alt="">
+    <h1> <span [class.add-background]="addBackground"> {{ postTitle }} </span> </h1>
+    <p> {{ postDetails }} </p>
+    <a [href]="postURL" target="_blank" [style.display]="postURL ? 'block' : 'none'"> More Details </a>
+</div> -->
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!-- Task! - part 7 -->
+<!-- <div [style.textAlign]="'center'">
+    <h1> Post Form </h1>
+
+    <br><br>
+
+    <input type="text" placeholder = "Post Title" (keyup) = "onPostTitle($event)">
+
+    <br><br>
+
+    <textarea [style.width]="'270px'" [style.height]="'190px'" 
+    placeholder="Post Details" (keyup) = "onPostDetails($event)"></textarea>
+
+    <br><br>
+
+    <input type="text" placeholder = "Post Image URL" (keyup) = "onPostImageUrl($event)">
+
+    <br><br>
+
+    <input type="text" placeholder = "Post URL" (keyup) = "onPostUrl($event)">
+
+    <br><br>
+
+    <input type="checkbox" (keyup)="onCheckbox()"><span>Background Color</span>
+
+    <h1 (messageEvent)="onCheckbox()" [class.test-yellow]="checkbox">{{ postTitle }}</h1>
+    <h1>{{ postDetails }}</h1>
+    <img [src]="postImageUrl" alt="" [style.width]="'300px'"><br>
+    <a [href]="postUrl" [target]="'_blank'">{{ moreDetails }}</a>
+</div> -->
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<!-- Class Binding
+<h1 [class.text-red] = "bool"> Angular App </h1>
+
+<app-navbar></app-navbar>
+<app-post [fromParent]='parentMessage' (messageEvent)="receiveMessage($event)"></app-post>
+
+<p>{{ message }}</p>
+
+<h1>{{ fromChildOutput }}</h1>
+
+<p>{{ mainMessage }}</p>
+
+String Interpolation -->
+<!-- <img src="{{ imgUrl }}" alt=""> -->
+
+<!-- Property Binding -->
+<!-- <img [src]="imgUrl" alt=""> -->
+
+<!-- Style Binding -->
+<!-- <h1 [style.color] =  "bool ? 'red' : 'green' "> Style Binding </h1> -->
+
+<!-- Event Binding -->
+<!-- <button (click)="buttonClick()"> Click Me </button> -->
+
+<!-- Event Filtering -->
+<!-- With keyup.enter we are filtering the keyup only on entry. -->
+<!-- <input type="text" (keyup.enter)="onKeyup()"> -->
+
+<!-- <input type="text" (keyup.enter)="onKeyup($event)"> -->
+
+<!-- Template Variable of Angular - getting data of input field -->
+<!-- #username - TEMPLATE VARIABLE - parameter declaration for usage for input parameter -->
+<!-- <input type="text" (keyup.enter)="onKeyup(username.value)" #username> -->
+
+<!-- Assign text input field value to userName field, ngModel is for assigning the input's value to the userName field -->
+<!-- Two Way Data Binding -->
+<!-- <input type="text" [(ngModel)]="userName" (keyup.enter)="onKeyup()"> -->
+
+<!-- One way and two way data binding -->
+<!-- <input type="text" [value]="textValue" (keyup.enter)="onKeyup()"> -->
+<!-- <br> -->
+<!-- <input type="text" [(ngModel)]="textValue" (keyup.enter)="onKeyup()"> -->
