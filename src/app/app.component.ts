@@ -4,6 +4,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostComponent } from './post/post.component';
 import { FormsModule } from '@angular/forms';
 import {
+  CurrencyPipe,
+  DatePipe,
   JsonPipe,
   LowerCasePipe,
   NgClass,
@@ -14,8 +16,15 @@ import {
   NgSwitchCase,
   NgSwitchDefault,
   NumberSymbol,
+  PercentPipe,
+  SlicePipe,
   UpperCasePipe,
 } from '@angular/common';
+import { AppendPipe } from './Pipes/append.pipe';
+import { AppendCLIPipe } from './Pipes/append-cli.pipe';
+import { SummaryPipe } from './Pipes/summary.pipe';
+import { PostService } from './Services/post.service';
+import { PostListComponent } from "./post-list/post-list.component";
 
 @Component({
   selector: 'app-root',
@@ -34,16 +43,51 @@ import {
     NgStyle,
     NgClass,
     UpperCasePipe,
-    LowerCasePipe
-  ],
+    LowerCasePipe,
+    CurrencyPipe,
+    DatePipe,
+    PercentPipe,
+    SlicePipe,
+    AppendPipe,
+    AppendCLIPipe,
+    SummaryPipe,
+    PostListComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
+  providers: [PostService]
 })
 export class AppComponent {
 
   title: string = "Angular Course";
   count: number = 4564258;
   dcValue: number = 3.41564848;
+
+  price: number = 99.99;
+
+  today: Date = new Date();
+
+  postObj: object = {
+    id: 1,
+    postTitle: "Post 1"
+  };
+
+  postArray: Array<string> = [
+    "post 1",
+    "post 2",
+    "post 3",
+    "post 4",
+    "post 5",
+    "post 6",
+  ];
+
+  userdetails = {
+    name: "User 1",
+    city: "Newyork",
+    countryCode: "US"
+  };
+
+  dummyText: string = "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
 
 
 
